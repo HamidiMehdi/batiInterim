@@ -1,0 +1,38 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Gestion Artisan{% endblock %}
+{% block titrePage %}Gestion Artisan{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Les artisans</center></h4>
+        <div class="hline"></div><br>
+        {% if artisans != null %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Date de naissance</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            {% for unArtisan in artisans %}
+                <tr>
+                        <td>{{unArtisan.nom}}</td>
+                        <td>{{unArtisan.prenom}}</td>
+                        <td>{{unArtisan.dateNaissance|date('d/m/Y')}}</td>
+                        <td><a class="btn btn-theme" href="{{path('page_gestion_maj_artisan', {'id': unArtisan.idArtisan })}}">Mettre à jour</a></td>
+                        <td><a class="btn btn-danger" href="{{path('page_gestion_delete_artisan', {'id': unArtisan.idArtisan })}}" >Supprimer</a></td>
+                    </tr>
+            {% endfor %}  
+            </tbody>
+        </table>
+        {% else %}
+            Il y a aucun artisan d'inscrit
+        {% endif %}
+    </div>
+    
+{% endblock%}

@@ -1,0 +1,14 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+{% block titrePage %}Nouvel artisan{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h4><center>Nouvel artisan</center></h4>
+        <div class="hline"></div><br>
+        {{ form(formNewArtisan) }}
+    </div>
+    
+{% endblock%}

@@ -1,0 +1,42 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Affecter mission{% endblock %}
+{% block titrePage %}Affecter mission{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Les missions d'un chantier sélectioné</center></h4>
+        <div class="hline"></div><br>
+        {% if missions|length >=1 %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Date de début</th>
+                        <th>Date de fin</th>
+                        <th>Intitulé</th>
+                        <th>Nombre d'artisan</th>
+                        <th>Prix par jour</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                {% for uneMissions in missions %}
+                    <tr>
+                        <td>{{uneMissions.datedebut|date('d/m/Y')}}</td>
+                        <td>{{uneMissions.datefin|date('d/m/Y')}}</td>
+                        <td>{{uneMissions.intitule}}</td>
+                        <td>{{uneMissions.nbartisans}}</td>
+                        <td>{{uneMissions.prixparjour}} €</td>
+                        <td><a class="btn btn-theme" href="{{path('page_affecter_artisan', {'id': uneMissions.idmission })}}">Selectionné</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table> 
+        {% else %}    
+            Le chantier n'a aucune mission.
+        {% endif %}   
+    </div>
+        
+{% endblock%}
+

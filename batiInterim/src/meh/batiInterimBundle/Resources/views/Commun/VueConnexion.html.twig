@@ -1,0 +1,32 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+{% block titrePage %}Connexion{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h4><center>Connectez-vous !</center></h4>
+        <div class="hline"></div><br>
+        {% if erreurConnexion is not empty %}
+            <br><div class="alert alert-danger"><center><b>Erreur : </b>{{erreurConnexion}}</center></div>
+        {% endif %}   
+        {{ form_start(form) }}
+            {{ form_label(form.login) }}
+            {{ form_widget(form.login) }}
+                            
+            {{ form_label(form.mdp) }}
+            {{ form_widget(form.mdp) }}
+                            
+            {{ form_label(form.profils) }}
+            {{ form_widget(form.profils) }}
+            <br>    
+        {{ form_end(form) }}
+                
+    </div>
+    
+{% endblock%}
+
+
+
+

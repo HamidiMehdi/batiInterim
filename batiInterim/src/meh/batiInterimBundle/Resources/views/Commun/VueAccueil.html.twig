@@ -1,0 +1,12 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+{% block titrePage %}Accueil{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h2>Bonjour {{app.session.get('nom')}} {{app.session.get('prenom')}} ({{app.session.get('profil')}})</h2>   
+    </div>
+    
+{% endblock%}

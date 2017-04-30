@@ -1,0 +1,43 @@
+
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Gestion congé{% endblock %}
+{% block titrePage %}Gestion congé {% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Gestion des congés</center></h4>
+        <div class="hline"></div><br>
+        {% if conges|length >= 1%}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Congé numero</th>
+                    <th>Date de debut</th>
+                    <th>Date de fin</th>
+                    <th>Etat</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            {% for unConger in conges %}
+                <tr>
+                        <td>{{unConger.idconger}}</td>
+                        <td>{{unConger.datedebut|date('d/m/Y')}}</td>
+                        <td>{{unConger.datefin|date('d/m/Y')}}</td>
+                        <td>{{unConger.valider }}</td>
+                        
+                        <td><a class="btn btn-theme" href="{{path('page_gestion_modifier_conge', {'id': unConger.idconger })}}">Modifier</a></td>
+                        <td><a class="btn btn-danger" href="{{path('page_gestion_delete_conge', {'id': unConger.idconger })}}">Supprimer</a></td>              
+                </tr>
+            {% endfor %}  
+            </tbody>
+        </table>
+        {% else%}
+            Vous n'avez pas de congé
+        {% endif%}
+    </div>
+    
+    
+{% endblock%}

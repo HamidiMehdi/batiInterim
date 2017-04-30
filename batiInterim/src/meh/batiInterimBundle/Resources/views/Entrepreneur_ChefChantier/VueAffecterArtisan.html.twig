@@ -1,0 +1,46 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Affecter artisan{% endblock %}
+{% block titrePage %}Affecter artisan à la mission selectionnée{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Choisir les artisans a affecter</center></h4>
+        <div class="hline"></div><br>
+        {% if artisans is not empty %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Date de naissance</th>
+                        <th>Lieu de naissance</th>
+                        <th>Numero de telephone</th>
+                        <th>Adresse</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                {% for unArtisan in artisans %}
+                    <tr>
+                        <td>{{unArtisan.nom}}</td>
+                        <td>{{unArtisan.prenom}}</td>
+                        <td>{{unArtisan.dateNaissance|date('d/m/Y')}}</td>
+                        <td>{{unArtisan.lieuNaissance}}</td>
+                        <td>{{unArtisan.numTel}}</td>
+                        <td>{{unArtisan.adresse}}, {{unArtisan.cp}}</td>
+                        <td><a class="btn btn-theme" href="{{path('affecter_artisan_mission', {'idMission': mission.idmission, 'idArtisan': unArtisan.idartisan })}}">Affecter</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table> 
+        {% else %} 
+            Il n'y a aucun artisan pour ce corps de métier ou aucun artisan n'est disponible.
+        {% endif %}   
+        
+        
+    </div>
+        
+{% endblock%}
+

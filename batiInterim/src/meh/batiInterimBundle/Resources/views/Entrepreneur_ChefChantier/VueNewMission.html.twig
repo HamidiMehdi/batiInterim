@@ -1,0 +1,17 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Nouvelle mission{% endblock %}
+{% block titrePage %}Nouvelle mission{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h4><center>Nouvelle mission</center></h4>
+        <div class="hline"></div><br>
+        {% if succes is not empty %}
+            <br><div class="alert alert-success"><center><b>Succès : </b>{{succes}}</center></div>
+        {% endif %} 
+        {{form(form)}}
+    </div>
+    
+{% endblock%}

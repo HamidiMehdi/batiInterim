@@ -1,0 +1,165 @@
+
+        # ---------------------   route commune   ---------------------- #
+
+page_de_connexion:
+    path:     /connexion
+    defaults: { _controller: mehbatiInterimBundle:CommunController/Connexion:pageConnexion }
+
+déconnexion:
+    path:     /déconnexion
+    defaults: { _controller: mehbatiInterimBundle:CommunController/Connexion:deconnexion }
+    
+page_accueil:
+    path:     /accueil
+    defaults: { _controller: mehbatiInterimBundle:CommunController/Accueil:pageAccueil }
+    
+page_changer_mdp_permiere_connexion:
+    path:     /changement_mdp_premier_connexion
+    defaults: { _controller: mehbatiInterimBundle:CommunController/Accueil:pageModificationMdpPremierConnexion } 
+    
+page_changer_mdp:
+    path:     /changer_mdp
+    defaults: { _controller: mehbatiInterimBundle:CommunController/Accueil:pageChangerMdp } 
+    
+    
+    
+        # ---------------------   route gestionnaire   ---------------------- #
+    
+    
+    
+page_nouveau_artisan:
+    path:     /nouveau_artisan
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Artisan:pageNewArtisan }
+    
+page_gestion_artisan:
+    path:     /gestion_artisan
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Artisan:pageGestionArtisan }
+    
+page_gestion_delete_artisan:
+    path:     /supprimer_artisan/{id}
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Artisan:deleteArtisan }
+    
+page_gestion_maj_artisan:
+    path:     /maj_artisan/{id}
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Artisan:pageMajArtisan }
+    
+page_nouveau_entrepreneur:
+    path:     /nouveau_entrepreneur
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Entrepreneur:pageNewEntrepreneur }
+    
+page_inserer_chef_chantier:
+    path:     /chef_chantier/{nomSociete}
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Entrepreneur:pageSelectChefChantier }
+    
+page_gestion_entrepreneur:
+    path:     /gestion_entrepreneur
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Entrepreneur:pageGestionEntrepreneur }
+    
+page_gestion_delete_entrepreneur:
+    path:     /supprimer_entrepreneur/{id}
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Entrepreneur:deleteEntrepreneur }
+    
+page_gestion_maj_entrepreneur:
+    path:     /maj_entrepreneur/{id}
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Entrepreneur:pageMajEntrepreneur }
+    
+page_conges_gestionnaire:
+    path:     /conges_artisan
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Conges:pageConge }
+    
+page_conges_update_etat:
+    path:     /maj_etat_conge/{id}/{btn}
+    defaults: { _controller: mehbatiInterimBundle:GestionnaireController/Conges:updateEtatConge }
+    
+    
+    
+        # ---------------------   route Artisan   ---------------------- #
+    
+    
+    
+page_nouveau_conge:
+    path:     /nouveau_conge
+    defaults: { _controller: mehbatiInterimBundle:ArtisanController/Conge:pageNouveauConge } 
+    
+page_gestion_conge:
+    path:     /gestion_conge
+    defaults: { _controller: mehbatiInterimBundle:ArtisanController/Conge:pageGestionConge } 
+    
+page_gestion_delete_conge:
+    path:     /supprimer_conge/{id}
+    defaults: { _controller: mehbatiInterimBundle:ArtisanController/Conge:deleteConge }
+    
+page_gestion_modifier_conge:
+    path:     /modifier_conge/{id}
+    defaults: { _controller: mehbatiInterimBundle:ArtisanController/Conge:pageModifierConge }
+    
+page_maj_coordonnées_artisan:
+    path:     /maj_coordonnées
+    defaults: { _controller: mehbatiInterimBundle:ArtisanController/Artisan:pageMajCoordonneesArtisan }
+    
+page_mission_artisan:
+    path:     /mission
+    defaults: { _controller: mehbatiInterimBundle:ArtisanController/Mission:pageMission }
+    
+update_etat_mission:
+    path:     /maj_etat_mission/{idMission}/{btn}
+    defaults: { _controller: mehbatiInterimBundle:ArtisanController/Mission:updateEtatMission }
+    
+    
+    
+        # ---------------------   route entrepreneur/chef de chantier   ---------------------- #
+        
+        
+        
+page__artisan_par_corps_metier:
+    path:     /artisan_par_corps_metier
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Artisan:pageArtisanParCorpsMetier }        
+
+page__artisan_abs_present:
+    path:     /artisan_absent_présent
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Artisan:pageArtisanAbsPresent }        
+ 
+page__conges_dun_artisan:
+    path:     /conges_dun_artisan
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Artisan:pageCongerDunArtisan }   
+    
+page_new_chantier:
+    path:     /nouveau_chantier
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Chantier:pageNewChantier }  
+    
+page_new_mission:
+    path:     /nouvelle_mission
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Chantier:pageNewMission }   
+    
+page_gestion_chantier:
+    path:     /gestion_chantier
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Chantier:pageGestionChantier }  
+    
+page_mission_dun_chantier:
+    path:     /mission_chantier/{id}
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Chantier:pageMissionDunChantier } 
+    
+page_affecter_mission_chantier:
+    path:     /affecter_mission_chantier
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Affecter:pageAffecterMissionChantier } 
+  
+page_affecter_artisan_mission:
+    path:     /affecter_mission/{id}
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Affecter:pageAffecterArtisanMission }     
+    
+page_affecter_artisan:
+    path:     /affecter_artisan/{id}
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Affecter:pageSelectionArtisanAffectation } 
+    
+affecter_artisan_mission:
+    path:     /affectation_artisan/{idMission}/{idArtisan}
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Affecter:selectionArtisan }
+    
+page_gestion_affecter:
+    path:     /gestion_affecter
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Affecter:pageGestionAffecter }
+    
+delete_une_affectation:
+    path:     /delete_affectation/{idMission}/{idArtisan}
+    defaults: { _controller: mehbatiInterimBundle:EntrepreneurChefChantierController/Affecter:deleteUneAffectation }
+    

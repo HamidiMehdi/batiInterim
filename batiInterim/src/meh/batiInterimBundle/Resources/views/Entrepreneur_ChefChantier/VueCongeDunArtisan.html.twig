@@ -1,0 +1,42 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Conges d'un artisan{% endblock %}
+{% block titrePage %}Conges d'un artisan{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Choisir l'artisan</center></h4>
+        <div class="hline"></div><br>
+        {{form(form)}}
+        {% if conges is not empty %}
+            <div class="hline"></div><br>
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Artisan</th>
+                        <th>Date de début</th>
+                        <th>Date de fin</th>
+                        <th>Etat</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                {% for unConge in conges %}
+                    {% if unConge.valider != "Refuser" %}
+                    <tr>
+                        <td>{{unConge.idartisan.nom}} {{unConge.idartisan.prenom}}</td>
+                        <td>{{unConge.dateDebut|date('d/m/Y')}}</td>
+                        <td>{{unConge.dateFin|date('d/m/Y')}}</td>
+                        <td>{{unConge.valider}}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table> 
+        {% endif %}   
+    </div>
+        
+{% endblock%}
+

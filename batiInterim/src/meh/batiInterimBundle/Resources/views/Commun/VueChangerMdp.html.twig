@@ -1,0 +1,23 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Modification mot de passe{% endblock %}
+{% block titrePage %}Modification mot de passe{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h4><center>Modifier votre mot de passe</center></h4>
+        <div class="hline"></div><br>
+        {% if erreurMdpActuel is not empty %}
+            <br><div class="alert alert-danger"><center><b>Erreur : </b>{{erreurMdpActuel}}</center></div>
+        {% endif %} 
+        {% if erreurNewMdp is not empty %}
+            <br><div class="alert alert-warning"><center><b>Attention : </b>{{erreurNewMdp}}</center></div>
+        {% endif %} 
+        {% if succes is not empty %}
+            <br><div class="alert alert-success"><center><b>Succès : </b>{{succes}}</center></div>
+        {% endif %} 
+        {{form(form)}}
+    </div>
+    
+{% endblock%}

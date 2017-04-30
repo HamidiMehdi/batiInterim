@@ -1,0 +1,17 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Inserer chef chantier{% endblock %}
+{% block titrePage %}Nouveau chef de chantier pour la société {{nomSociete}}{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h4><center>Nouveau chef de chantier</center></h4>
+        <div class="hline"></div><br>
+        {{form(form)}}
+        <a class="btn btn-theme" href="{{path('page_gestion_entrepreneur')}}">Finir l'inscription (retour page gestion entrepreneur)</a>
+    </div>
+    
+    
+{% endblock%}
+

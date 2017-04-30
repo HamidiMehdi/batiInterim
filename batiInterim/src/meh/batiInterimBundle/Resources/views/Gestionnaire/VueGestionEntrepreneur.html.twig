@@ -1,0 +1,34 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Gestion Entrepreneur{% endblock %}
+{% block titrePage %}Gestion Entrepreneur{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Les entrepreneurs</center></h4>
+        <div class="hline"></div><br>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Nom de société</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            {% for unEntrepreneur in entrepreneurs %}
+                <tr>
+                        <td>{{unEntrepreneur.nomChef}}</td>
+                        <td>{{unEntrepreneur.prenomChef}}</td>
+                        <td>{{unEntrepreneur.nomSociete}}</td>
+                        <td><a class="btn btn-theme" href="{{path('page_gestion_maj_entrepreneur', {'id': unEntrepreneur.idEntrepreneur })}}">Mettre à jour</a></td>
+                        <td><a class="btn btn-danger" href="{{path('page_gestion_delete_entrepreneur', {'id': unEntrepreneur.idEntrepreneur })}}" >Supprimer</a></td>
+                    </tr>
+            {% endfor %}  
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock%}

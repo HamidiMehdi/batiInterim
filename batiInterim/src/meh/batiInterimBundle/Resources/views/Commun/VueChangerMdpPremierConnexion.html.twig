@@ -1,0 +1,20 @@
+
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Premiére connexion{% endblock %}
+{% block titrePage %}Premiére connexion / mot de passe {% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h4><center>Choisissez votre mot de passe</center></h4>
+        <div class="hline"></div><br>
+        {% if erreur is not empty %}
+            <br><div class="alert alert-warning"><center><b>Attention : </b>{{erreur}}</center></div>
+        {% endif %}  
+        {{form(form)}}
+    </div>
+    
+    
+{% endblock%}
+

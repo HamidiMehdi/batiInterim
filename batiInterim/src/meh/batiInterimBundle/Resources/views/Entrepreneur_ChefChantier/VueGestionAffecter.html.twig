@@ -1,0 +1,41 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Liste affectations{% endblock %}
+{% block titrePage %}Liste affectations{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Liste des affectations a un mission </center></h4>
+        <div class="hline"></div><br>
+        {% if lesAffecter|length >=1 %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Mission</th>
+                        <th>Date mission</th>
+                        <th>Artisan</th>
+                        <th>Etat</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                {% for unAffecter in lesAffecter %}
+                    <tr>
+                        <td>{{unAffecter.idmission.intitule}}</td>
+                        <td>{{unAffecter.idmission.datedebut|date('d/m/Y')}} au {{unAffecter.idmission.datefin|date('d/m/Y')}}</td>
+                        <td>{{unAffecter.idartisan.nom}} {{unAffecter.idartisan.prenom}}</td>
+                        <td>{{unAffecter.idetat.alias}} ({{unAffecter.idetat.libelle}})</td>
+                        <td><a class="btn btn-danger" href="{{path('delete_une_affectation', {'idMission': unAffecter.idmission.idmission, 'idArtisan': unAffecter.idartisan.idartisan })}}">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table> 
+        {% else %}    
+            Il y a aucun artisan affecté a une mission.
+        {% endif %}   
+    </div>
+        
+{% endblock%}
+
+

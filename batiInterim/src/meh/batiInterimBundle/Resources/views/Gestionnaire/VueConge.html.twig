@@ -1,0 +1,45 @@
+
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Congés artisan{% endblock %}
+{% block titrePage %}Congés artisan {% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Congés des artisans</center></h4>
+        <div class="hline"></div><br>
+        {% if conges|length >= 1%}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Congé numero</th>
+                    <th>Date de debut</th>
+                    <th>Date de fin</th>
+                    <th>Etat</th>
+                    <th>Artisan</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            {% for unConger in conges %}
+                <tr>
+                        <td>{{unConger.idconger}}</td>
+                        <td>{{unConger.datedebut|date('d/m/Y')}}</td>
+                        <td>{{unConger.datefin|date('d/m/Y')}}</td>
+                        <td>{{unConger.valider }}</td>
+                        <td>{{unConger.idartisan.nom}} {{unConger.idartisan.prenom}}</td>
+                        
+                        <td><a class="btn btn-success" href="{{path('page_conges_update_etat', {'id': unConger.idconger, 'btn':1 })}}">Accepter</a></td>
+                        <td><a class="btn btn-danger" href="{{path('page_conges_update_etat', {'id': unConger.idconger, 'btn':2 })}}">Refuser</a></td>              
+                </tr>
+            {% endfor %}  
+            </tbody>
+        </table>
+        {% else%}
+            Il n'y a aucun congé.
+        {% endif%}
+    </div>
+    
+    
+{% endblock%}

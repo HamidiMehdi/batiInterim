@@ -1,0 +1,40 @@
+{% extends 'mehbatiInterimBundle::base.html.twig' %}
+
+{% block title %}Gestion chantier{% endblock %}
+{% block titrePage %}Gestion chantier{% endblock %}
+{% block contenu %}
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <h4><center>Les chantiers </center></h4>
+        <div class="hline"></div><br>
+        {% if chantiers|length >=1 %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Chantier numéro</th>
+                        <th>Nom</th>
+                        <th>Chef du chantier</th>
+                        <th>Entrepreneur</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                {% for unChantier in chantiers %}
+                    <tr>
+                        <td>{{unChantier.idchantier}}</td>
+                        <td>{{unChantier.nom}}</td>
+                        <td>{{unChantier.idchefchantier.nom}} {{unChantier.idchefchantier.prenom}}</td>
+                        <td>{{unChantier.identrepreneur.nomsociete}}</td>
+                        <td><a class="btn btn-theme" href="{{path('page_mission_dun_chantier', {'id': unChantier.idchantier })}}">Voir les missions</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table> 
+        {% else %}    
+            Vous n'avez pas de chantier.
+        {% endif %}   
+    </div>
+        
+{% endblock%}
+
